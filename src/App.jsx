@@ -6,19 +6,15 @@ import Counter from "./Counter";
 import Switch from "./Switch";
 import Gallery from "./Gallery";
 import Form from "./Form";
+import Button from "./Button";
+import Todolist from "./Todolist";
 
 function App() {
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "12px",
-      }}
-    >
-    <Form/>
-    </div>
-  );
+  return <div>
+
+<Todolist/>
+
+  </div>;
 }
 
 export default App;

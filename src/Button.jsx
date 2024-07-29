@@ -1,6 +1,7 @@
 
 
 
+
 function Button({ text = "click here" }) {
   return (
     <button
@@ -13,6 +14,7 @@ function Button({ text = "click here" }) {
     </button>
   );
 }
+
 
 
 function Component2(){

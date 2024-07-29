@@ -1602,4 +1602,38 @@ let products =[
 
 
 
+let tododata =[
+  {
+    id:1,
+    title:"this is first todo",
+    status:"pending"
+  },
+  {
+    id:2,
+    title:"this is second todo",
+    status:"pending"
+  },
+  {
+    id:3,
+    title:"this is third todo",
+    status:"pending"
+  },
+  {
+    id:4,
+    title:"this is foutrh todo",
+    status:"pending"
+  },
+  {
+    id:5,
+    title:"this is fifth todo",
+    status:"pending"
+  },
+  
+ 
+]
+
+export {tododata}
+
+
+
   export default products;
