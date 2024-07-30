@@ -4,7 +4,7 @@ import { tododata } from './data';
 
 const Todolist = () => {
 
-    const[todos,setTodos] =useState(tododata);
+    const[todos,setTodos] =useState(JSON.parse(localStorage.getItem("tododata")));
     const[inpt,setInpt] =useState("");
 
     function addTodo(){
@@ -30,6 +30,7 @@ const Todolist = () => {
 
         
         setTodos(newTodos)
+        localStorage.setItem("tododata",JSON.stringify(newTodos));
 
     }
 
@@ -46,10 +47,27 @@ const Todolist = () => {
 
           setTodos(newTodos);
 
+          localStorage.setItem("tododata",JSON.stringify(newTodos));
+    }
 
+    function doneTodo(id){
+      let newTodos=[];
+      for(let i=0;i<todos.length;i++){
+        if(todos[i].id!=id){
+           newTodos.push(todos[i]);
+        }
+        else{
+           todos[i].status="done";
+           newTodos.push(todos[i]);
+        }
+      }
+
+      setTodos(newTodos);
+      localStorage.setItem("tododata",JSON.stringify(newTodos));
     }
 
 
+    console.log(todos);
 
   return (
     <div>
@@ -79,7 +97,7 @@ const Todolist = () => {
      
      {
         todos.map((todo)=>{
-            return <TodoItem key={todo.id}  todo={todo} deleteTodo={deleteTodo}/>
+            return <TodoItem key={todo.id}  todo={todo} deleteTodo={deleteTodo} doneTodo={doneTodo}/>
         })
      }
 

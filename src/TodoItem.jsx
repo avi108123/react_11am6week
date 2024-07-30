@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
-const TodoItem = ({todo,deleteTodo}) => {
-    const[done,setDone] =useState(false);
+const TodoItem = ({todo,deleteTodo,doneTodo}) => {
+   
   return (
     <div style={{
         width:"100%",
-        height:"30px",
-        backgroundColor:done?"green":"lightcoral",
+        minHeight:"30px",
+        backgroundColor:todo.status=="done"?"green":"lightcoral",
         display:"flex",
         justifyContent:"space-between",
         alignItems:"center",
@@ -17,7 +17,7 @@ const TodoItem = ({todo,deleteTodo}) => {
         <span>{todo.title}</span>
         <div>
        {
-        !done ? <button onClick={()=>setDone(true)} >done</button>
+        todo.status=="pending" ? <button onClick={()=>doneTodo(todo.id)} >done</button>
        : <button onClick={()=>deleteTodo(todo.id)}  style={{backgroundColor:"red"}} >delete</button>
        }
         </div>
